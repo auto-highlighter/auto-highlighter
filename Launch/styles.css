@@ -31,7 +31,12 @@ div.highlightTimes {
     font-size: 20px;
 }
 
-div.upload {
+div.download {
     padding: 20px;
     text-align: center;
+}
+
+a.in-text-anchor {
+    color: inherit;
+    text-decoration: none;
 }
