@@ -59,7 +59,6 @@ function reset() {
 
 function highlightTime() {
 	highlightsArray.push(elapsedTime);
-	console.log(highlightsArray);
 	highlightsAsString += timetoString(elapsedTime) + '<br>';
 	document.getElementById(
 		'highlightTimesBody',
