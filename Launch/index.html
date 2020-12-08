@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Highlight-inator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="main.js"></script>
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Highlight-inator</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="icon" href="doofenshmirtz.ico" />
+		<script src="main.js"></script>
+		<script src="timer.js"></script>
+	</head>
 
-<body>
-<div class="header">
-    <header>
-        Welcome to "insert name we decide on here ".
-    </header>
+	<body>
+		<div class="header">
+			<header> Welcome to "insert name we decide on here ". </header>
 
-    <p>
-        As soon as you start streaming, click the "Start timer" button to ensure the highlight times line up.<br>
-        Click the "Stop timer" button when you are finished recording. <br>
-        Click the "Save highlight" button to mark the times you wish to clip. <br>
-        When you are finished, push the "Upload VOD" button to proceed to the webpage to upload your VOD.
-    </p>
-</div>
+			<p>
+				As soon as you start streaming, click the "Start timer" button
+				to ensure the highlight times line up.<br />
+				Click the "Stop timer" button when you are finished recording.
+				<br />
+				Click the "Mark highlight" button to mark the times you wish to
+				clip. <br />
+				When you are finished, push the "Download Timestamps" button
+				download your vod markers to be used later.
+			</p>
+		</div>
 
-<div class="timerButtons" id="timerButtons">
-    <button type="button" id="startButton">
-        Start timer
-    </button>
+		<div class="timerButtons" id="timerButtons">
+			<button type="button" id="startButton"> Start timer </button>
+			<button type="button" id="stopButton"> Stop timer </button>
+			<button type="button" id="resetButton"> Reset time </button>
+		</div>
 
-    <button type="button" id="stopButton">
-        Stop timer
-    </button>
+		<div class="timeDisplay">
+			<span class="time" id="display">00:00:00</span>
+		</div>
 
-    <button type="button" id="resetButton">
-        Reset time
-    </button>
+		<div class="highlightTimes">
+			<header> Highlight Times<br /> </header>
+			<b id="highlightTimesBody"> </b>
+		</div>
 
-    <button type="button" id="markHighlightButton">
-        Mark highlight
-    </button>
-
-</div>
-
-<div class="timeDisplay">
-    <span class ="time" id="display">00:00:00</span>
-</div>
-
-<div class="highlightTimes">
-    <header>
-        Highlight Times<br>
-    </header>
-    <b id="highlightTimesBody">
-
-    </b>
-</div>
-
-<label for="vod">VOD: </label>
-            <input type="file" name="vod" id="vod"><br /><br />
-            <label for="ts">Time Stamp: </label>
-            <input type="file" name="ts" id="ts"><br /><br />
-            <button id="upload">
-                Upload
-            </button>
-            <button id="download">
-                Download
-            </button>
-
-<script src="timer.js"></script>
-</body>
+        <div class="download">
+			<button type="button" id="downloadButton">
+				<a
+					class="in-text-anchor"
+					id="downloadButtonInnerAnchor"
+					href="data:text/json;charset=utf-8,"
+					download="timestamp.json"
+				>
+					Download Timestamps
+				</a>
+			</button>
+        </div>
+        
+		<input type="file" name="vod" id="vod" /><br /><br />
+		<label for="ts">Time Stamp: </label>
+		<input type="file" name="ts" id="ts" /><br /><br />
+		<button id="upload"> Upload </button>
+		<button id="download"> Download </button>
+	</body>
 </html>
