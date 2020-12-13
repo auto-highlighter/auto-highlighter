@@ -51,6 +51,7 @@ function reset() {
 	stop();
 	print('00:00:00');
 	highlightsArray = [];
+	highlightsAsString = "";
     elapsedTime = 0;
     document.getElementById(
 		'highlightTimesBody',
@@ -71,6 +72,7 @@ function highlightTime() {
 	downloadButtonInnerAnchor.setAttribute('href', jsonString);
 }
 
+
 let startTimerButton = document.getElementById('startButton');
 let stopTimerButton = document.getElementById('stopButton');
 let resetButton = document.getElementById('resetButton');
@@ -83,3 +85,4 @@ startTimerButton.addEventListener('click', start);
 stopTimerButton.addEventListener('click', stop);
 resetButton.addEventListener('click', reset);
 highlightTimeButton.addEventListener('click', highlightTime);
+downloadButtonInnerAnchor.addEventListener
