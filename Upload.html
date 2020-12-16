@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Highlight-inator</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="icon" href="doofenshmirtz.ico" />
+	</head>
+
+	<body id="header">
+		<div class="header">
+			<h1> Welcome to Highlight-inator</h1>
+			<nav>
+				<a href="index.html">Create Timestamps</a>
+			</nav>
+
+			<div class="headerInfo" id="headerInfo" style="display: flex">
+				<div class="reelOne" id="reelOne">
+					<p>
+						<img src="camerareel1.png" alt="camera reel" />
+					</p>
+				</div>
+				<p id="headerInstructions">
+					When you have your timestamps and stream vod downloaded use
+					<br />this file upload to start creating the highlight
+				</p>
+				<div class="reelTwo" id="reelTwo">
+					<p>
+						<img src="camerareel1.png" alt="camera reel" />
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="coreWrapper"
+			id="coreWrapper"
+			style="
+				flex-direction: column;
+				width: 70%;
+				margin-left: auto;
+				margin-right: auto;
+			"
+		>
+			<div class="row">
+				<div class="child">
+					<label for="vod">Vod: </label><br />
+					<input type="file" name="vod" id="vod" />
+				</div>
+				<div class="child">
+					<label for="ts">Time Stamp: </label><br />
+					<input type="file" name="ts" id="ts" />
+				</div>
+			</div>
+			<button id="upload"> Upload </button>
+
+			<div class="row">
+				<div class="child" id="highlight-list"> </div>
+			</div>
+			<div class="row">
+				<div class="child">
+					<button id="Refresh">Refresh</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="child">
+					<label for="hid">Hid to download: </label><br />
+					<input type="text" name="hid" id="hid" />
+				</div>
+			</div>
+			<button id="download"> Download </button>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>
