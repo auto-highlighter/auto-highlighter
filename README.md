@@ -1,4 +1,4 @@
-#How to run locally
+# How to run locally
 Clone this repo and open the index.html file
 
 ## instructions
