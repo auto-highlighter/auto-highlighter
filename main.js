@@ -7,7 +7,7 @@ window.onload = () => {
     const hidInput = document.getElementById("hid");
     const refreshButton = document.getElementById("Refresh");
 
-    const refresh = () =>
+    const refresh = () =>{
         fetch("https://auto-highlighter.azurewebsites.net/api-v1/Highlight")
             .then(async (response) => {
                 if (response.status != 200) {
@@ -19,19 +19,17 @@ window.onload = () => {
                             )
                     );
                 } else {
-					response = await response.json();
-					
-					console.log(response)
-					let highlightStatuses = ''
+                    response = await response.json();
+                    let highlightStatuses = "";
                     response.forEach((hid) => {
-                        highlightStatuses+= 
-                            `<p>${hid.hid}: status ${hid.status}</p><br>`
-					});
-					
-					higlightsList.innerHTML = highlightStatuses
+                        highlightStatuses += `<p>Highlight Id: ${hid.hid} - Status: ${hid.status}</p><br>`;
+                    });
+
+                    higlightsList.innerHTML = highlightStatuses;
                 }
             })
-            .catch((err) => console.error(err));
+			.catch((err) => console.error(err));
+		}
     refresh();
 
     refreshButton.addEventListener("click", (e) => {
@@ -52,8 +50,10 @@ window.onload = () => {
                     body: formData,
                 }
             )
-                .then((res) => {
-                    console.log(res);
+                .then(async (res) => {
+					res = await res.json();
+					alert(`Created highlight with id: ${res.hid}`)
+					refresh();
                 })
                 .catch((err) => console.error(err));
         } else {
@@ -70,6 +70,9 @@ window.onload = () => {
             )
                 .then((res) => {
                     console.log(res);
+                    if (res.status != 200) {
+                        throw "error";
+                    }
                     return res.blob();
                 })
                 .then((result) => {
@@ -79,7 +82,9 @@ window.onload = () => {
                         `${hidInput.value}.mp4`
                     );
                 })
-                .catch((err) => console.error(err));
+                .catch((err) => {
+                    alert(`Couldn't download highlight`);
+                });
         }
     });
 };
