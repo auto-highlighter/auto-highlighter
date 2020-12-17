@@ -8,7 +8,7 @@ window.onload = () => {
     const refreshButton = document.getElementById("Refresh");
 
     const refresh = () =>{
-        fetch("https://auto-highlighter.azurewebsites.net/api-v1/Highlight")
+        fetch("https://auto-highlighter.azurewebsites.net/api-v1/Highlight/Status")
             .then(async (response) => {
                 if (response.status != 200) {
                     higlightsList.appendChild(
