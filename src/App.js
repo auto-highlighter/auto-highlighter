@@ -1,6 +1,5 @@
-import React, { lazy } from 'react';
-import routes from './pages/routes.js';
-import withSuspense from './wrappers/withSuspense';
+import React, { lazy, Suspense } from 'react';
+import routes from './constants/routes.js';
 import Navbar from './components/navbar.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -24,9 +23,11 @@ function App() {
 	return (
 		<Router>
 			<Navbar routes={routes} />
-			<Switch>{allRoutes}</Switch>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Switch>{allRoutes}</Switch>
+			</Suspense>
 		</Router>
 	);
 }
 
-export default withSuspense(App);
+export default App;
