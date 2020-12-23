@@ -11200,7 +11200,7 @@ video {
 }
 
 .font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .font-mono {
@@ -39793,7 +39793,7 @@ video {
   }
 
   .sm\:font-serif {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
   .sm\:font-mono {
@@ -68343,7 +68343,7 @@ video {
   }
 
   .md\:font-serif {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
   .md\:font-mono {
@@ -96893,7 +96893,7 @@ video {
   }
 
   .lg\:font-serif {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
   .lg\:font-mono {
@@ -125443,7 +125443,7 @@ video {
   }
 
   .xl\:font-serif {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
   .xl\:font-mono {
@@ -153993,7 +153993,7 @@ video {
   }
 
   .\32xl\:font-serif {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Roboto, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 
   .\32xl\:font-mono {
