@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../icons/Highlight-inator.svg';
+import { push as BurgerMenu } from 'react-burger-menu';
+import './burger.css';
 
 export default function Navbar({ routes }) {
-	const routeLinks = routes.map((route) =>
+	const routeLinksLg = routes.map((route) =>
 		route === routes[0] || route === routes[routes.length - 1] ? null : (
-			<li key={route}>
+			<li className='my-5' key={route}>
 				<Link
-					className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+					className='px-4 py-2  text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
 					to={route}>
 					{route}
 				</Link>
@@ -14,40 +17,51 @@ export default function Navbar({ routes }) {
 		),
 	);
 
+	const routeLinksSm = routes.map((route) =>
+			<Link
+				key={route}
+				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+				to={route}>
+				{route}
+			</Link>
+	);
+
 	return (
 		<div className='contianer bg-indigo-900 sticky top-0'>
-			<nav className='flex p-5 justify-between'>
-				<div className='mx-5'>
+			<nav className='flex px-5 justify-between'>
+				<div className='mr-10 sm:mx-5 flex justify-between items-center w-24 '>
 					<Link
-						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+						className='pr-10 sm:px-4 text-white rounded-md'
 						to='/'>
-						Logo
+						<img
+							width='100%'
+							className='align-middle'
+							src={logo}
+							alt='Highlight-inator Logo'
+						/>
 					</Link>
 				</div>
-				<ul className='hidden md:flex w-7/12 flex flex-row justify-between'>
-					{routeLinks}
+				<ul className='hidden sm:flex w-7/12 flex flex-row justify-between'>
+					{routeLinksLg}
 				</ul>
-				<div className='hidden md:block mx-5'>
+				<div className='hidden sm:block m-5 '>
 					<Link
 						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
 						to={`/${routes[routes.length - 1]}`}>
 						login
 					</Link>
 				</div>
-				<label
-					htmlFor='menu-toggle'
-					className='pointer-cursor md:hidden block'>
-					<svg
-						className='fill-current text-white'
-						xmlns='http://www.w3.org/2000/svg'
-						width='20'
-						height='20'
-						viewBox='0 0 20 20'>
-						<title>menu</title>
-						<path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
-					</svg>
-				</label>
-				<input className='hidden' type='checkbox' id='menu-toggle' />
+				<div
+					className='pointer-cursor sm:hidden block'
+					id='outer-container'>
+					<BurgerMenu
+						right
+						pageWrapId={'page-wrap'}
+						outerContainerId={'root'}>
+						{routeLinksSm}
+					</BurgerMenu>
+					<div className='right' id='page-wrap' />
+				</div>
 			</nav>
 		</div>
 	);
