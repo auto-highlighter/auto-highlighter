@@ -10,6 +10,10 @@ export default function Login(props) {
 					name='description'
 					content='Log into your Highlight-Inator account'
 				/>
+				<link
+					rel='canonical'
+					href='https://Highlight-Inator.DevRyan.io/Login'
+				/>
 			</Helmet>
 			<div>
 				<h1>Login</h1>

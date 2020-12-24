@@ -10,6 +10,10 @@ export default function Dashboard(props) {
 					name='description'
 					content='Create, download, and check on the status of your automatically generated VOD highlights.'
 				/>
+				<link
+					rel='canonical'
+					href='https://Highlight-Inator.DevRyan.io/Dashboard'
+				/>
 			</Helmet>
 			<div>
 				<h1>Dashboard</h1>

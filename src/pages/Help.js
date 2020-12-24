@@ -6,9 +6,10 @@ export default function Help(props) {
 		<>
 			<Helmet>
 				<title>Highlight-Inator | Help</title>
-				<meta
-					name='description'
-					content='Faq and Support'
+				<meta name='description' content='Faq and Support' />
+				<link
+					rel='canonical'
+					href='https://Highlight-Inator.DevRyan.io/Help'
 				/>
 			</Helmet>
 			<div>

@@ -13,6 +13,10 @@ export default function Timestamps(props) {
 					name='description'
 					content='Generate timestamps for your vod'
 				/>
+				<link
+					rel='canonical'
+					href='https://Highlight-Inator.DevRyan.io/Timestamps'
+				/>
 			</Helmet>
 			<div>
 				<h1>Timestamps</h1>
