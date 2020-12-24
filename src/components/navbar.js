@@ -7,7 +7,7 @@ import './burger.css';
 export default function Navbar({ routes }) {
 	const routeLinksLg = routes.map((route) =>
 		route === routes[0] || route === routes[routes.length - 1] ? null : (
-			<li className='my-5' key={route}>
+			<li className='my-5 w-96 text-center' key={route}>
 				<Link
 					className='px-4 py-2  text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
 					to={route}>
@@ -41,10 +41,12 @@ export default function Navbar({ routes }) {
 						/>
 					</Link>
 				</div>
-				<ul className='hidden sm:flex w-7/12 flex flex-row justify-between'>
-					{routeLinksLg}
-				</ul>
-				<div className='hidden sm:block m-5 '>
+				<div className='hidden sm:flex w-7/12'>
+					<ul className='w-full flex flex-row justify-between'>
+						{routeLinksLg}
+					</ul>
+				</div>
+				<div className='hidden sm:block m-5 w-24'>
 					<Link
 						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
 						to={`/${routes[routes.length - 1]}`}>
