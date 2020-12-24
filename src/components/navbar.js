@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../icons/Highlight-inator.svg';
-import { push as BurgerMenu } from 'react-burger-menu';
+import { slide as BurgerMenu } from 'react-burger-menu';
 import './burger.css';
 
 export default function Navbar({ routes }) {
@@ -17,14 +17,14 @@ export default function Navbar({ routes }) {
 		),
 	);
 
-	const routeLinksSm = routes.map((route) =>
-			<Link
-				key={route}
-				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
-				to={route}>
-				{route}
-			</Link>
-	);
+	const routeLinksSm = routes.map((route) => (
+		<Link
+			key={route}
+			className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+			to={route}>
+			{route}
+		</Link>
+	));
 
 	return (
 		<div className='contianer bg-indigo-900 sticky top-0'>
@@ -54,13 +54,7 @@ export default function Navbar({ routes }) {
 				<div
 					className='pointer-cursor sm:hidden block'
 					id='outer-container'>
-					<BurgerMenu
-						right
-						pageWrapId={'page-wrap'}
-						outerContainerId={'root'}>
-						{routeLinksSm}
-					</BurgerMenu>
-					<div className='right' id='page-wrap' />
+					<BurgerMenu right>{routeLinksSm}</BurgerMenu>
 				</div>
 			</nav>
 		</div>
