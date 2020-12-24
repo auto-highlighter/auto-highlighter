@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../icons/Highlight-inator.svg';
+import logo from '../../icons/Highlight-inator.svg';
 import { slide as BurgerMenu } from 'react-burger-menu';
 import './burger.css';
 
-export default function Navbar({ routes }) {
+export default function navbar({ routes }) {
 	const routeLinksLg = routes.map((route) =>
 		route === routes[0] || route === routes[routes.length - 1] ? null : (
 			<li className='my-5 w-96 text-center' key={route}>

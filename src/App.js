@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import routes from './constants/routes.js';
-import Navbar from './components/navbar.js';
+import Navbar from './components/navbar/navbar.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const routeMap = {};

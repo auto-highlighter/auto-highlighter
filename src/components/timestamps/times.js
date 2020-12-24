@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Process(props) {
+export default function times(props) {
 	return (
 		<div>
-			<h1>Process</h1>
+			<h1>times</h1>
 		</div>
 	);
 }

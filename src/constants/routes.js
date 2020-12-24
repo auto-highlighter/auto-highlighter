@@ -1,1 +1,2 @@
-export default ['LandingPage', 'Dashboard', 'Timestamps', 'Process', 'Login'];
+// eslint-disable-next-line import/no-anonymous-default-export
+export default ['LandingPage', 'Dashboard', 'Timestamps', 'Help', 'Login'];

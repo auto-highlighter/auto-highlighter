@@ -1,18 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default function Login(props) {
+export default function Help(props) {
 	return (
 		<>
 			<Helmet>
-				<title>Highlight-Inator | User Login</title>
+				<title>Highlight-Inator | Help</title>
 				<meta
 					name='description'
-					content='Log into your Highlight-Inator account'
+					content='Faq and Support'
 				/>
 			</Helmet>
 			<div>
-				<h1>Login</h1>
+				<h1>Help</h1>
 			</div>
 		</>
 	);
