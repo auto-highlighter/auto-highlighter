@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function times(props) {
 	return (
-		<div>
-			<h1>times</h1>
-		</div>
+        <>
+			<h1 className="text-center">times</h1>
+		</>
 	);
 }

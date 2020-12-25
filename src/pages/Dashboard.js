@@ -16,7 +16,7 @@ export default function Dashboard(props) {
 				/>
 			</Helmet>
 			<div>
-				<h1>Dashboard</h1>
+				<h1 className='text-center'>Dashboard</h1>
 			</div>
 		</>
 	);

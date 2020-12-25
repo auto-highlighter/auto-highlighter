@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import routes from './constants/routes.js';
 import Navbar from './components/navbar/navbar.js';
+import NotFound from './pages/404.js';
+import Loading from './pages/Loading.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const routeMap = {};
@@ -23,8 +25,12 @@ function App() {
 	return (
 		<Router>
 			<Navbar routes={routes} />
-			<Suspense fallback={<div>Loading...</div>}>
-				<Switch>{allRoutes}</Switch>
+			<Suspense fallback={<Loading />}>
+				<Switch>
+					{allRoutes}
+
+					<Route component={NotFound} />
+				</Switch>
 			</Suspense>
 		</Router>
 	);

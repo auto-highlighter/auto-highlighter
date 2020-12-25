@@ -19,10 +19,18 @@ export default function Timestamps(props) {
 				/>
 			</Helmet>
 			<div>
-				<h1>Timestamps</h1>
-				<Timer />
-				<Times />
-				<Inputs />
+				<h1 className='text-center'>Timestamp Generator</h1>
+				<div className='grid grid-cols-3 gap-80 mx-40'>
+					<div className='p-8'>
+						<Inputs />
+					</div>
+					<div className='p-8'>
+						<Timer />
+					</div>
+					<div className='p-8'>
+						<Times />
+					</div>
+				</div>
 			</div>
 		</>
 	);

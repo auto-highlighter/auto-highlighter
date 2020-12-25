@@ -13,7 +13,7 @@ export default function Help(props) {
 				/>
 			</Helmet>
 			<div>
-				<h1>Help</h1>
+				<h1 className="text-center">Help</h1>
 			</div>
 		</>
 	);

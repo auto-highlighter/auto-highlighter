@@ -16,7 +16,7 @@ export default function Login(props) {
 				/>
 			</Helmet>
 			<div>
-				<h1>Login</h1>
+				<h1 className="text-center">Login</h1>
 			</div>
 		</>
 	);

@@ -16,7 +16,7 @@ export default function LandingPage(props) {
 				/>
 			</Helmet>
 			<div>
-				<h1>LandingPage</h1>
+				<h1 className="text-center">LandingPage</h1>
 			</div>
 		</>
 	);
