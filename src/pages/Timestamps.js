@@ -57,8 +57,8 @@ export default function Timestamps(props) {
 			</Helmet>
 			<div>
 				<h1 className='text-center'>Timestamp Generator</h1>
-				<div className='flex mx-3 justify-around'>
-					<div className='my-3 px-3 w-1/3 text-center'>
+				<div className='flex-wrap flex mx-3 justify-around'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border'>
 						<Inputs
 							isTimerOn={isTimerOn}
 							toggleTimer={toggleTimer}
@@ -67,14 +67,14 @@ export default function Timestamps(props) {
 							downloadTimestamps={downloadTimestamps}
 						/>
 					</div>
-					<div className='my-3 px-3 w-1/3 text-center'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border'>
 						<Timer
 							timerOn={isTimerOn}
 							addTime={addTime}
 							time={time}
 						/>
 					</div>
-					<div className='my-3 px-3 w-1/3 text-center'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border'>
 						<Times times={times} />
 					</div>
 				</div>
