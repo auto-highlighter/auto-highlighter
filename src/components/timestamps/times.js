@@ -1,9 +1,12 @@
 import React from 'react';
 
-export default function times(props) {
+export default function Times({ times }) {
 	return (
-        <>
-			<h1 className="text-center">times</h1>
+		<>
+			<h1>times</h1>
+			{times.map((time) => (
+				<p>{new Date(time).toISOString().slice(11, 21)}</p>
+			))}
 		</>
 	);
 }
