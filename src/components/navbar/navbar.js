@@ -17,14 +17,23 @@ export default function navbar({ routes }) {
 		),
 	);
 
-	const routeLinksSm = routes.map((route) => (
-		<Link
-			key={route}
-			className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
-			to={route}>
-			{route}
-		</Link>
-	));
+	const routeLinksSm = routes.map((route) =>
+		route === routes[0] ? (
+			<Link
+				key={route}
+				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+				to='/'>
+				Home Page
+			</Link>
+		) : (
+			<Link
+				key={route}
+				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition transition-colors'
+				to={route}>
+				{route}
+			</Link>
+		),
+	);
 
 	return (
 		<div className='contianer bg-indigo-900 sticky top-0'>
