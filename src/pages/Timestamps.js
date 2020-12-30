@@ -55,10 +55,10 @@ export default function Timestamps(props) {
 					href='https://Highlight-Inator.DevRyan.io/Timestamps'
 				/>
 			</Helmet>
-			<div>
-				<h1 className='text-center'>Timestamp Generator</h1>
-				<div className='flex-wrap flex mx-3 justify-around'>
-					<div className='mx-auto my-4 px-3 w-80 text-center border'>
+			<div className='h-full flex items-center flex-col'>
+				<h1 className='text-center flex-grow-0'>Timestamp Generator</h1>
+				<div className='flex-wrap flex mx-3 justify-around flex-grow w-full'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
 						<Inputs
 							isTimerOn={isTimerOn}
 							toggleTimer={toggleTimer}
@@ -67,14 +67,14 @@ export default function Timestamps(props) {
 							downloadTimestamps={downloadTimestamps}
 						/>
 					</div>
-					<div className='mx-auto my-4 px-3 w-80 text-center border'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
 						<Timer
 							timerOn={isTimerOn}
 							addTime={addTime}
 							time={time}
 						/>
 					</div>
-					<div className='mx-auto my-4 px-3 w-80 text-center border'>
+					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
 						<Times times={times} />
 					</div>
 				</div>

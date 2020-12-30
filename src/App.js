@@ -23,16 +23,22 @@ function App() {
 	});
 
 	return (
-		<Router>
-			<Navbar routes={routes} />
-			<Suspense fallback={<Loading />}>
-				<Switch>
-					{allRoutes}
+		<div className='h-screen flex flex-col'>
+			<Router>
+				<div className='flex-grow-0'>
+					<Navbar routes={routes} />
+				</div>
+				<div className='flex-grow'>
+					<Suspense fallback={<Loading />}>
+						<Switch>
+							{allRoutes}
 
-					<Route component={NotFound} />
-				</Switch>
-			</Suspense>
-		</Router>
+							<Route component={NotFound} />
+						</Switch>
+					</Suspense>
+				</div>
+			</Router>
+		</div>
 	);
 }
 
