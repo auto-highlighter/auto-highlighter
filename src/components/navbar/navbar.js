@@ -1,10 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../icons/Highlight-inator.svg';
 import { slide as BurgerMenu } from 'react-burger-menu';
 import './burger.css';
 
-export default function navbar({ routes }) {
+export default function Navbar({ routes }) {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 	const routeLinksLg = routes.map((route) =>
 		route === routes[0] || route === routes[routes.length - 1] ? null : (
 			<li className='my-5 w-96 text-center' key={route}>
@@ -22,14 +24,16 @@ export default function navbar({ routes }) {
 			<Link
 				key={route}
 				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
-				to='/'>
+				to='/'
+				onClick={() => setIsMenuOpen(false)}>
 				Home Page
 			</Link>
 		) : (
 			<Link
 				key={route}
 				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
-				to={route}>
+				to={route}
+				onClick={() => setIsMenuOpen(false)}>
 				{route}
 			</Link>
 		),
@@ -65,7 +69,13 @@ export default function navbar({ routes }) {
 				<div
 					className='pointer-cursor sm:hidden block'
 					id='outer-container'>
-					<BurgerMenu right>{routeLinksSm}</BurgerMenu>
+					<BurgerMenu
+						right
+						onOpen={() => setIsMenuOpen(true)}
+						onClose={() => setIsMenuOpen(false)}
+						isOpen={isMenuOpen}>
+						{routeLinksSm}
+					</BurgerMenu>
 				</div>
 			</nav>
 		</div>

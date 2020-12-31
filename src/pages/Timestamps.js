@@ -78,7 +78,7 @@ export default function Timestamps(props) {
 				</p>
 				<div className='flex flex-grow w-full items-center sm:py-10'>
 					<div className='flex-grow-0 sm:flex-wrap flex items-center justify-around w-full max-h-200 h-full flex-col sm:flex-row'>
-						<div className='my-1 sm:my-4 px-3 w-80 text-center flex justify-center align-middle items-center flex-col'>
+						<div className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center flex justify-center align-middle items-center flex-col sm:h-full'>
 							<Inputs
 								isTimerOn={isTimerOn}
 								toggleTimer={toggleTimer}
@@ -87,14 +87,16 @@ export default function Timestamps(props) {
 								downloadTimestamps={downloadTimestamps}
 							/>
 						</div>
-						<div className='my-1 sm:my-4 px-3 w-80 text-center flex justify-center align-middle items-center flex-col'>
+						<div className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center flex justify-center align-middle items-center flex-col'>
 							<Timer
 								timerOn={isTimerOn}
 								addTime={addTime}
 								time={time}
 							/>
 						</div>
-						<div className='my-1 sm:my-4 px-3 w-80 text-center border flex justify-start align-middle items-center flex-col overflow-y-scroll min-h-28 sm:min-h-full flex-grow sm:flex-grow-0'>
+						<div
+							className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center border flex justify-start align-middle items-center flex-col 
+							overflow-y-scroll min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'>
 							<Times
 								times={times}
 								removeTimestamp={removeTimestamp}
