@@ -25,9 +25,7 @@ function App() {
 	return (
 		<div className='h-screen flex flex-col'>
 			<Router>
-				<div className='flex-grow-0'>
 					<Navbar routes={routes} />
-				</div>
 				<div className='flex-grow'>
 					<Suspense fallback={<Loading />}>
 						<Switch>

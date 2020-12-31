@@ -9,7 +9,7 @@ export default function navbar({ routes }) {
 		route === routes[0] || route === routes[routes.length - 1] ? null : (
 			<li className='my-5 w-96 text-center' key={route}>
 				<Link
-					className='px-4 py-2  text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition-colors'
+					className='px-4 py-2  text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
 					to={route}>
 					{route}
 				</Link>
@@ -21,14 +21,14 @@ export default function navbar({ routes }) {
 		route === routes[0] ? (
 			<Link
 				key={route}
-				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition-colors'
+				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
 				to='/'>
 				Home Page
 			</Link>
 		) : (
 			<Link
 				key={route}
-				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition-colors'
+				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
 				to={route}>
 				{route}
 			</Link>
@@ -36,8 +36,7 @@ export default function navbar({ routes }) {
 	);
 
 	return (
-		<div
-			className='contianer bg-indigo-900 sticky top-0'>
+		<div className='contianer bg-md-1-700 sticky top-0 flex-grow-0'>
 			<nav className='flex px-5 justify-between'>
 				<div className='mr-10 sm:mx-5 flex justify-between items-center w-24 '>
 					<Link
@@ -58,7 +57,7 @@ export default function navbar({ routes }) {
 				</div>
 				<div className='hidden sm:block m-5 w-24'>
 					<Link
-						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-indigo-700 transition-colors'
+						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
 						to={`/${routes[routes.length - 1]}`}>
 						login
 					</Link>

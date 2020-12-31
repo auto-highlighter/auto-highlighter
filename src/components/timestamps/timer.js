@@ -11,7 +11,7 @@ export default function Timer({ timerOn, addTime, time }) {
 	}, [timerOn, addTime]);
 
 	return (
-		<p className='font-cursive text-5xl'>
+		<p className='font-time text-6xl'>
 			{new Date(time).toISOString().slice(11, 21)}
 		</p>
 	);

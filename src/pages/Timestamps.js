@@ -28,6 +28,14 @@ export default function Timestamps(props) {
 		setTime(0);
 	};
 
+	const removeTimestamp = (index) => {
+		setTimes((times) => {
+			let newTimes = [...times];
+			newTimes.splice(index, 1);
+			return newTimes;
+		});
+	};
+
 	const downloadTimestamps = () => {
 		const timestampsBlob = new Blob([JSON.stringify(times)], {
 			type: 'text/json;charset=utf-8',
@@ -56,26 +64,33 @@ export default function Timestamps(props) {
 				/>
 			</Helmet>
 			<div className='h-full flex items-center flex-col'>
-				<h1 className='text-center flex-grow-0'>Timestamp Generator</h1>
-				<div className='flex-wrap flex mx-3 justify-around flex-grow w-full'>
-					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
-						<Inputs
-							isTimerOn={isTimerOn}
-							toggleTimer={toggleTimer}
-							markHighlight={markHighlight}
-							reset={reset}
-							downloadTimestamps={downloadTimestamps}
-						/>
-					</div>
-					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
-						<Timer
-							timerOn={isTimerOn}
-							addTime={addTime}
-							time={time}
-						/>
-					</div>
-					<div className='mx-auto my-4 px-3 w-80 text-center border flex justify-center align-middle items-center flex-col'>
-						<Times times={times} />
+				<h1 className='text-center flex-grow-0 py-2 font-header text-4xl'>
+					Timestamp Generator
+				</h1>
+				<div className='flex flex-grow w-full items-center'>
+					<div className='flex-grow-0 flex-wrap flex justify-around w-full max-h-200 h-full'>
+						<div className='my-1 sm:my-4 px-3 w-80 text-center flex justify-center align-middle items-center flex-col'>
+							<Inputs
+								isTimerOn={isTimerOn}
+								toggleTimer={toggleTimer}
+								markHighlight={markHighlight}
+								reset={reset}
+								downloadTimestamps={downloadTimestamps}
+							/>
+						</div>
+						<div className='my-1 sm:my-4 px-3 w-80 text-center flex justify-center align-middle items-center flex-col'>
+							<Timer
+								timerOn={isTimerOn}
+								addTime={addTime}
+								time={time}
+							/>
+						</div>
+						<div className='my-1 sm:my-4 px-3 w-80 text-center border flex justify-start align-middle items-center flex-col overflow-y-scroll h-28 sm:h-200 sm:max-h-200'>
+							<Times
+								times={times}
+								removeTimestamp={removeTimestamp}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
