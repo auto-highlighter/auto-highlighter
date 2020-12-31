@@ -34,8 +34,9 @@ export default function Inputs({
 			</button>
 
 			<button
-				className='block mx-auto flex-grow border w-11/12 h-11/12 m-2 bg-md-1-700'
-				onClick={() => confirm()}>
+				className='block mx-auto flex-grow border w-11/12 h-11/12 m-2 bg-md-1-700 disabled:cursor-not-allowed disabled:bg-gray-300 transition-colors'
+				onClick={() => confirm()}
+				disabled={isTimerOn}>
 				<span className='text-white text-2xl'>Reset</span>
 			</button>
 

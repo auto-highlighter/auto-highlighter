@@ -10,7 +10,6 @@ export default function Times({ times, removeTimestamp }) {
 					</p>
 					<button
 						onClick={() => {
-							console.count();
 							removeTimestamp(index);
 						}}>
 						<span className='mx-2 text-xl'>❌</span>
