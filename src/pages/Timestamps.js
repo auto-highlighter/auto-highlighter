@@ -4,39 +4,24 @@ import Times from '../components/timestamps/times.js';
 import Inputs from '../components/timestamps/inputs.js';
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
+import useEventCallback from '../hooks/useEventCallback';
 
 export default function Timestamps(props) {
 	const [isTimerOn, setIsTimerOn] = useState(false);
 	const [times, setTimes] = useState([]);
 	const [time, setTime] = useState(0);
 
-	const toggleTimer = () => {
-		setIsTimerOn((timerOn) => !timerOn);
-	};
-
-	const markHighlight = () => {
-		setTimes((times) => [...times, time]);
-	};
-
-	const addTime = (timeToAdd) => {
-		setTime((time) => time + timeToAdd);
-	};
-
-	const reset = () => {
+	const reset = useEventCallback(() => {
 		setIsTimerOn(false);
 		setTimes([]);
 		setTime(0);
-	};
+	}, []);
 
-	const removeTimestamp = (index) => {
-		setTimes((times) => {
-			let newTimes = [...times];
-			newTimes.splice(index, 1);
-			return newTimes;
-		});
-	};
+	const markHighlight = useEventCallback(() => {
+		setTimes((times) => [...times, time]);
+	}, [time]);
 
-	const downloadTimestamps = () => {
+	const downloadTimestamps = useEventCallback(() => {
 		const timestampsBlob = new Blob([JSON.stringify(times)], {
 			type: 'text/json;charset=utf-8',
 		});
@@ -49,7 +34,7 @@ export default function Timestamps(props) {
 		anchor.click();
 
 		URL.revokeObjectURL(blobUrl);
-	};
+	}, [times]);
 	return (
 		<>
 			<Helmet>
@@ -81,7 +66,7 @@ export default function Timestamps(props) {
 						<div className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center flex justify-center align-middle items-center flex-col sm:h-full'>
 							<Inputs
 								isTimerOn={isTimerOn}
-								toggleTimer={toggleTimer}
+								setIsTimerOn={setIsTimerOn}
 								markHighlight={markHighlight}
 								reset={reset}
 								downloadTimestamps={downloadTimestamps}
@@ -90,17 +75,14 @@ export default function Timestamps(props) {
 						<div className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center flex justify-center align-middle items-center flex-col'>
 							<Timer
 								timerOn={isTimerOn}
-								addTime={addTime}
+								setTime={setTime}
 								time={time}
 							/>
 						</div>
 						<div
-							className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center border flex justify-start align-middle items-center flex-col 
-							overflow-y-scroll min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'>
-							<Times
-								times={times}
-								removeTimestamp={removeTimestamp}
-							/>
+							className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center border flex justify-start align-middle items-center flex-col-reverse 
+							overflow-y-auto min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'>
+							<Times times={times} setTimes={setTimes} />
 						</div>
 					</div>
 				</div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Inputs({
 	isTimerOn,
-	toggleTimer,
+	setIsTimerOn,
 	markHighlight,
 	reset,
 	downloadTimestamps,
@@ -15,6 +15,10 @@ export default function Inputs({
 		) {
 			reset();
 		}
+	};
+
+	const toggleTimer = () => {
+		setIsTimerOn((timerOn) => !timerOn);
 	};
 	return (
 		<>
