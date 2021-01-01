@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Inputs({
+export default React.memo(function Inputs({
 	isTimerOn,
 	setIsTimerOn,
 	markHighlight,
@@ -51,4 +51,4 @@ export default function Inputs({
 			</button>
 		</>
 	);
-}
+});

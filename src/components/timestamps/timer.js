@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import workerScript from '../../workers/timerWorker';
+import Ms from './ms';
+import Hhmmss from './hhmmss';
 
 export default function Timer({ timerOn, setTime, time }) {
 	const msToIsoString = (ms) => {
 		let seconds = Math.floor(ms / 1000);
-		ms = Math.floor((ms % 1000) / 100);
 
 		let minutes = Math.floor(seconds / 60);
 		seconds = seconds % 60;
@@ -16,9 +17,7 @@ export default function Timer({ timerOn, setTime, time }) {
 			.toString()
 			.padStart(2, '0')}:${minutes
 			.toString()
-			.padStart(2, '0')}:${seconds
-			.toString()
-			.padStart(2, '0')}.${ms.toString().padEnd(3, '0')}`;
+			.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.`;
 	};
 
 	useEffect(() => {
@@ -30,5 +29,12 @@ export default function Timer({ timerOn, setTime, time }) {
 		}
 	}, [timerOn, setTime]);
 
-	return <p className='font-time text-6xl w-full'>{msToIsoString(time)}</p>;
-};
+	return (
+		<>
+			<p className='font-time text-6xl w-4/5 inline text-left'>
+				<Hhmmss hhmmss={msToIsoString(time)} />
+				<Ms ms={Math.floor((time % 1000) / 100)} />
+			</p>
+		</>
+	);
+}
