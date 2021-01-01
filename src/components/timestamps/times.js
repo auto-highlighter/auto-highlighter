@@ -8,6 +8,7 @@ export default React.memo(function Times({ times, setTimes }) {
 			return newTimes;
 		});
 	};
+
 	const msToTime = (time) => {
 		let ms = Math.floor(time % 1000)
 			.toString()

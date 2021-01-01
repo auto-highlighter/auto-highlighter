@@ -81,7 +81,8 @@ export default function Timestamps(props) {
 						</div>
 						<div
 							className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center border flex justify-start align-middle items-center flex-col-reverse 
-							overflow-y-auto min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'>
+							overflow-y-auto min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'
+							style={{ willChange: 'transform' }}>
 							<Times times={times} setTimes={setTimes} />
 						</div>
 					</div>
