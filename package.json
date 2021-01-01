@@ -20,7 +20,9 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-		"postbuild": "react-snap"
+		"postbuild": "react-snap",
+		"predeploy": "yarn run build",
+		"deploy": "gh-pages -b master -d build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -42,6 +44,7 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.1.0",
+		"gh-pages": "^3.1.0",
 		"postcss": "^8.2.1",
 		"postcss-cli": "^8.3.1",
 		"react-snap": "^1.23.0",
