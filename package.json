@@ -22,7 +22,7 @@
 		"watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
 		"postbuild": "react-snap",
 		"predeploy": "yarn run build",
-		"deploy": "gh-pages -b master -d build"
+		"deploy": "gh-pages -b gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
