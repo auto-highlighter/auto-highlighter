@@ -1,11 +1,14 @@
+/* eslint-disable no-restricted-globals */
 let timerWorker = () => {
-	let startTime = 0;
-	let currentTime = startTime;
-	function addTime() {
-		currentTime += 25;
-		postMessage(currentTime);
-	}
-	setInterval(addTime, 25);
+	self.onmessage = function (e) {
+		let startTime = e.data;
+		let currentTime = startTime;
+		function addTime() {
+			currentTime += 25;
+			postMessage(currentTime);
+		}
+		setInterval(addTime, 25);
+	};
 };
 
 let code = timerWorker.toString();

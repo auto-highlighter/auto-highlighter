@@ -5,11 +5,19 @@ import Inputs from '../components/timestamps/inputs.js';
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import useEventCallback from '../hooks/useEventCallback';
+import useStateSessionStorage from '../hooks/useStateSessionStorage';
+import * as sessionStorageKeys from '../constants/sessionStorageKeys';
 
 export default function Timestamps(props) {
 	const [isTimerOn, setIsTimerOn] = useState(false);
-	const [times, setTimes] = useState([]);
-	const [time, setTime] = useState(0);
+	const [times, setTimes] = useStateSessionStorage(
+		sessionStorageKeys.TIMES,
+		[],
+	);
+	const [time, setTime] = useStateSessionStorage(
+		sessionStorageKeys.TIMER,
+		0,
+	);
 
 	const reset = useEventCallback(() => {
 		setIsTimerOn(false);

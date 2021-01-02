@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import workerScript from '../../workers/timerWorker';
 import Ms from './ms';
 import Hhmmss from './hhmmss';
@@ -20,14 +20,19 @@ export default function Timer({ timerOn, setTime, time }) {
 			.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.`;
 	};
 
+	const startWorker = useCallback(() => {
+		let timer = new Worker(workerScript);
+		timer.postMessage(time);
+		timer.onmessage = async (time) => setTime(time.data);
+		return timer;
+	}, [time, setTime]);
+
 	useEffect(() => {
-		let timer = null;
 		if (timerOn) {
-			timer = new Worker(workerScript);
-			timer.onmessage = async (time) => setTime(time.data);
+			let timer = startWorker();
 			return () => timer.terminate();
 		}
-	}, [timerOn, setTime]);
+	}, [timerOn, startWorker]);
 
 	return (
 		<>
