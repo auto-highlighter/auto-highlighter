@@ -12,7 +12,7 @@ export default function Navbar({ routes }) {
 			<li className='my-5 w-96 text-center' key={route}>
 				<Link
 					className='px-4 py-2  text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
-					to={route}>
+					to={`/${route}/`}>
 					{route}
 				</Link>
 			</li>
@@ -32,7 +32,7 @@ export default function Navbar({ routes }) {
 			<Link
 				key={route}
 				className='px-4 py-2 my-5 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
-				to={route}
+				to={`/${route}/`}
 				onClick={() => setIsMenuOpen(false)}>
 				{route}
 			</Link>
@@ -62,12 +62,12 @@ export default function Navbar({ routes }) {
 				<div className='hidden sm:block m-5 w-24'>
 					<Link
 						className='px-4 py-2 text-white rounded-md font-serif text-lg transform hover:bg-md-1-600 transition-colors'
-						to={`/${routes[routes.length - 1]}`}>
+						to={`/${routes[routes.length - 1]}/`}>
 						login
 					</Link>
 				</div>
 				<div
-					className='pointer-cursor sm:hidden block'
+					className='pointer-cursor sm:hidden block z-50'
 					id='outer-container'>
 					<BurgerMenu
 						right

@@ -31,7 +31,7 @@ export default function Timer({ timerOn, setTime, time }) {
 
 	return (
 		<>
-			<p className='font-time text-6xl w-4/5 inline text-left'>
+			<p className='font-time text-6xl w-full sm:w-4/5 inline text-left'>
 				<Hhmmss hhmmss={msToIsoString(time)} />
 				<Ms ms={Math.floor((time % 1000) / 100)} />
 			</p>
