@@ -7,6 +7,7 @@ import { useState } from 'react';
 import useEventCallback from '../hooks/useEventCallback';
 import useStateSessionStorage from '../hooks/useStateSessionStorage';
 import * as sessionStorageKeys from '../constants/sessionStorageKeys';
+import { isMobile } from 'react-device-detect';
 
 export default function Timestamps(props) {
 	const [isTimerOn, setIsTimerOn] = useState(false);
@@ -14,10 +15,7 @@ export default function Timestamps(props) {
 		sessionStorageKeys.TIMES,
 		[],
 	);
-	const [time, setTime] = useStateSessionStorage(
-		sessionStorageKeys.TIMER,
-		0,
-	);
+	const [time, setTime] = useStateSessionStorage(sessionStorageKeys.TIMER, 0);
 
 	const reset = useEventCallback(() => {
 		setIsTimerOn(false);
@@ -90,7 +88,7 @@ export default function Timestamps(props) {
 						<div
 							className='my-1 sm:my-4 px-3 w-64 sm:w-80 text-center border flex justify-start align-middle items-center flex-col-reverse 
 							overflow-y-auto min-h-28 h-28 sm:h-full flex-grow sm:flex-grow-0'
-							style={{ willChange: 'transform' }}>
+							style={isMobile ? null : { willChange: 'transform' }}>
 							<Times times={times} setTimes={setTimes} />
 						</div>
 					</div>
